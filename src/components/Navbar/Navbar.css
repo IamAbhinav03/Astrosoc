@@ -1,0 +1,134 @@
+/* Components/Navbar/Navbar.css */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  background: rgba(0, 0, 0, 0);
+  /* backdrop-filter: blur(10px); */
+  z-index: 1000;
+  gap: 1rem;
+}
+
+.nav-logo {
+  height: 3.5rem;
+  width: auto;
+  margin-right: 0.5rem;
+}
+
+.nav-title {
+  text-align: left;
+  margin-right: auto;
+}
+
+.nav-items {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-items a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.125rem;
+  position: relative;
+}
+
+.nav-items a:hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+}
+
+/* Hamburger Menu Styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.hamburger-line {
+  width: 2rem;
+  height: 0.25rem;
+  background-color: white;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+    justify-content: center;
+    position: relative;
+  }
+
+  .nav-logo {
+    /* position: absolute; */
+    left: 1rem;
+  }
+
+  .nav-title {
+    margin: 0;
+    text-align: center;
+    flex-grow: 1;
+    color: white;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-items.mobile {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 100%;
+    max-width: 300px;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 6rem 2rem 2rem;
+    transition: right 0.3s ease-in-out;
+  }
+
+  .nav-items.mobile.open {
+    right: 0;
+  }
+
+  .nav-items.mobile li {
+    margin: 1rem 0;
+    text-align: center;
+  }
+
+  /* Hamburger Animation */
+  .hamburger-line.open:nth-child(1) {
+    transform: rotate(45deg);
+  }
+
+  .hamburger-line.open:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-line.open:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+}
