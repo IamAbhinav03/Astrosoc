@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const Navbar = () => {
+interface NavbarProps {
+  isBannerVisible: boolean;
+}
+
+const Navbar = ({ isBannerVisible }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [isVisible, setIsVisible] = useState(true);
@@ -50,7 +54,9 @@ const Navbar = () => {
         opacity: isVisible ? 1 : 0,
       }}
       transition={{ duration: 0.3 }}
-      className="fixed top-0 left-0 right-0 flex justify-between items-center px-6 md:px-12 py-4  z-50"
+      className={`fixed left-0 right-0 flex justify-between items-center px-6 md:px-12 py-4  z-50 ${
+        isBannerVisible ? "top-10" : "top-0"
+      }`}
     >
       {/* Logo and Title */}
       <div className="flex items-center gap-2">
