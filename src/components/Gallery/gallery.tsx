@@ -3,18 +3,20 @@ import { motion } from "framer-motion";
 export default function Gallery() {
   const galleryImages = [
     {
-      src: "src/assets/game.jpg",
+      src: "/assets/game.jpg",
       name: "Stargazing session",
       title: "Game",
       description: "game1",
       photographer: "Abhinav",
       date: "December 2024",
     },
-    { src: "src/assets/observatory.jpg", alt: "Observatory visit" },
-    { src: "src/assets/rocket_launch1.JPG", alt: "Workshop" },
-    { src: "src/assets/game.jpg", alt: "Stargazing session" },
-    { src: "src/assets/observatory.jpg", alt: "Observatory visit" },
-    { src: "src/assets/rocket_launch1.JPG", alt: "Workshop" },
+    { src: "/assets/DSC_0048.JPG", alt: "Observatory visit" },
+    { src: "/assets/DSC_0066.JPG", alt: "Workshop" },
+    { src: "/assets/DSC_0079.JPG", alt: "Stargazing session" },
+    { src: "/assets/DSC_0523.JPG", alt: "Observatory visit" },
+    { src: "/assets/DSC_0527.JPG", alt: "Workshop" },
+    { src: "/assets/DSC_0554.JPG", alt: "Stargazing session" },
+    { src: "/assets/DSC_0579.JPG", alt: "Observatory visit" },
   ];
   return (
     <section className="py-20 bg-[#0A0F1F]">

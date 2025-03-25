@@ -6,7 +6,6 @@ interface Event {
   id: number;
   title: string;
   date: string;
-  time: string;
   location: string;
   description: string;
   details: string;
@@ -19,25 +18,21 @@ interface Event {
 const events: Event[] = [
   {
     id: 1,
-    title: "Observing the Orion Nebula",
-    date: "2024-03-15",
-    time: "8:00 PM",
-    location: "Campus Observatory",
-    description:
-      "Join us for a night of stargazing as we explore the wonders of the Orion Nebula.",
+    title: "Spaccraft 2025",
+    date: "TBA",
+    location: "Ashoka University",
+    description: "Ashoka University's annual astronomy festival!",
     details:
-      "This event is free and open to the public. We'll have telescopes set up and experts on hand to guide you through the constellations. Bring your own blanket or chair for comfortable viewing. In case of inclement weather, the event will be rescheduled. Check our social media for updates.",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Orion_Nebula_Hubble.jpg/1280px-Orion_Nebula_Hubble.jpg",
+      "Welcome to Spacecraft 3.0 – Ashoka University's annual astronomy festival! This year, we're hosting an inter-university edition where stargazers, space enthusiasts, and curious minds come together to celebrate the wonders of the cosmos.",
+    image: "/assets/spacecraft-logo.png",
     past: false,
-    speakers: ["Dr. Emily Carter", "Prof. David Lee"],
-    registrationLink: "https://example.com/orion-nebula-registration",
+    speakers: [""],
+    registrationLink: "https://spacecraft-2025.netlify.app/",
   },
   {
     id: 2,
     title: "Astrophotography Workshop",
     date: "2024-04-01",
-    time: "2:00 PM",
     location: "Room 101, Science Building",
     description:
       "Learn the basics of astrophotography and capture stunning images of the night sky.",
@@ -52,7 +47,6 @@ const events: Event[] = [
     id: 3,
     title: "Past Event: Meteor Shower Watch",
     date: "2023-11-17",
-    time: "10:00 PM",
     location: "Open Field",
     description:
       "We watched the spectacular meteor shower and learned about its origins.",
@@ -66,7 +60,6 @@ const events: Event[] = [
     id: 4,
     title: "Cosmology Lecture",
     date: "2024-05-10",
-    time: "7:00 PM",
     location: "Main Auditorium",
     description:
       "A fascinating lecture on the latest discoveries in cosmology.",
@@ -81,12 +74,6 @@ const events: Event[] = [
 ];
 
 const EventCard: React.FC<{ event: Event }> = ({ event }) => {
-  const formattedDate = new Date(event.date).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -98,7 +85,7 @@ const EventCard: React.FC<{ event: Event }> = ({ event }) => {
         <img
           src={event.image}
           alt={event.title}
-          className="w-full h-full object-cover transition duration-300 group-hover:scale-110"
+          className="w-full h-full object-cover transition duration-300"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
       </div>
@@ -106,9 +93,7 @@ const EventCard: React.FC<{ event: Event }> = ({ event }) => {
         <h2 className="text-2xl font-semibold mb-2 text-white">
           {event.title}
         </h2>
-        <p className="text-gray-300 mb-4">
-          {formattedDate} at {event.time}
-        </p>
+
         <p className="text-gray-400 mb-4">{event.location}</p>
         <p className="text-gray-300 mb-4 line-clamp-2">{event.description}</p>
         <Link
@@ -130,14 +115,20 @@ const EventsSection: React.FC = () => {
 
   return (
     <section
-      className="min-h-screen bg-gradient-to-b from-[#1E3A8A] to-[#0F172A] py-12 text-white"
+      className="min-h-screen bg-[#0A0F1F] py-12 text-white relative"
       id="events"
     >
-      <div className="container mx-auto px-4">
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-[#0A0F1F]/90 to-[#0A0F1F]">
+        {/* Blur effect */}
+        <div className="absolute inset-0 backdrop-blur-sm" />
+      </div>
+
+      <div className="container mx-auto px-4 relative">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-4xl font-bold mb-8 text-center text-[#B0C7F1]"
+          className="text-4xl font-bold mb-8 text-center text-[#B0C7F1] tracking-wide"
         >
           Events
         </motion.h2>

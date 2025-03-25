@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 
 export default function About() {
   const images = [
-    { src: "src/assets/game.jpg", alt: "Stargazing session" },
-    { src: "src/assets/observatory.jpg", alt: "Observatory visit" },
-    { src: "src/assets/rocket_launch1.JPG", alt: "Workshop" },
+    { src: "./assets/game.jpg", alt: "game" },
+    { src: "/assets/rocket_launch1.JPG", alt: "rocket launch" },
+    { src: "./assets/DSC_0079.JPG", alt: "group photo" },
   ];
 
   return (
@@ -12,7 +12,7 @@ export default function About() {
       className="relative min-h-screen bg-cover bg-fixed"
       style={{
         backgroundImage:
-          "url('src/assets/white-rainforest-XL1QmKv8-unsplash.jpg')",
+          "url('./assets/white-rainforest-XL1QmKv8-unsplash.jpg')",
       }}
     >
       {/* Gradient overlay */}
@@ -42,11 +42,11 @@ export default function About() {
               className="space-y-4"
             >
               <p className="text-lg text-[#D1DAF2]">
-                The Ashoka Astronomy Society is a student-led organization that
-                brings together astronomy enthusiasts from diverse backgrounds
-                to share in the wonder of the cosmos. Our members include
-                mathematicians, photographers, and stargazing aficionados, all
-                united by a passion for astronomy.
+                The Astronomy Society of Ashoka is a student-led organization
+                that brings together astronomy enthusiasts from diverse
+                backgrounds to share in the wonder of the cosmos. Our members
+                include mathematicians, photographers, and stargazing
+                aficionados, all united by a passion for astronomy.
               </p>
               <p className="text-lg text-[#D1DAF2]">
                 We offer a variety of engaging activities, such as stargazing

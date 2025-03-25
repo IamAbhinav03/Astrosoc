@@ -6,7 +6,6 @@ interface Event {
   id: number;
   title: string;
   date: string;
-  time: string;
   location: string;
   description: string;
   details: string;
@@ -20,19 +19,16 @@ interface Event {
 const events: Event[] = [
   {
     id: 1,
-    title: "Observing the Orion Nebula",
-    date: "2024-03-15",
-    time: "8:00 PM",
-    location: "Campus Observatory",
-    description:
-      "Join us for a night of stargazing as we explore the wonders of the Orion Nebula.",
+    title: "Spaccraft 2025",
+    date: "TBA",
+    location: "Ashoka University",
+    description: "Ashoka University's annual astronomy festival!",
     details:
-      "This event is free and open to the public. We'll have telescopes set up and experts on hand to guide you through the constellations. Bring your own blanket or chair for comfortable viewing. In case of inclement weather, the event will be rescheduled. Check our social media for updates.",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Orion_Nebula_Hubble.jpg/1280px-Orion_Nebula_Hubble.jpg",
+      "Welcome to Spacecraft 3.0 – Ashoka University's annual astronomy festival! This year, we’re hosting an inter-university edition where stargazers, space enthusiasts, and curious minds come together to celebrate the wonders of the cosmos.",
+    image: "/assets/spacecraft-logo.png",
     past: false,
-    speakers: ["Dr. Emily Carter", "Prof. David Lee"],
-    registrationLink: "https://example.com/orion-nebula-registration",
+    speakers: [""],
+    registrationLink: "https://spacecraft-2025.netlify.app/",
   },
   // ... other events
 ];
@@ -43,8 +39,20 @@ const EventPage: React.FC = () => {
 
   if (!event) {
     return (
-      <div className="min-h-screen bg-[#0A0F1F] py-12 text-white">
-        <div className="container mx-auto px-4 text-center">
+      <section
+        className="relative min-h-screen bg-cover bg-fixed"
+        style={{
+          backgroundImage:
+            "url('./assets/white-rainforest-XL1QmKv8-unsplash.jpg')",
+        }}
+      >
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-[#0A0F1F]/90 to-[#0A0F1F]">
+          {/* Blur effect */}
+          <div className="absolute inset-0 backdrop-blur-sm" />
+        </div>
+
+        <div className="relative container mx-auto px-4 py-12 text-center">
           <h1 className="text-4xl font-bold mb-4 text-[#B0C7F1]">
             Event Not Found
           </h1>
@@ -55,15 +63,15 @@ const EventPage: React.FC = () => {
             Return to Events
           </Link>
         </div>
-      </div>
+      </section>
     );
   }
 
-  const formattedDate = new Date(event.date).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+  // const formattedDate = new Date(event.date).toLocaleDateString("en-US", {
+  //   year: "numeric",
+  //   month: "long",
+  //   day: "numeric",
+  // });
 
   return (
     <div className="min-h-screen bg-[#0A0F1F] py-12 text-white">
@@ -107,9 +115,9 @@ const EventPage: React.FC = () => {
               <h1 className="text-4xl font-bold mb-4 text-[#B0C7F1]">
                 {event.title}
               </h1>
-              <p className="text-xl text-gray-300">
+              {/* <p className="text-xl text-gray-300">
                 {formattedDate} at {event.time}
-              </p>
+              </p> */}
               <p className="text-xl text-gray-300">{event.location}</p>
             </div>
           </div>

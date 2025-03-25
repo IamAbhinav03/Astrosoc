@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface NavbarProps {
@@ -60,7 +60,7 @@ const Navbar = ({ isBannerVisible }: NavbarProps) => {
     >
       {/* Logo and Title */}
       <div className="flex items-center gap-2">
-        <img src="/src/assets/logo.png" alt="Logo" className="h-14 w-auto" />
+        <img src="/assets/logo.png" alt="Logo" className="h-14 w-auto" />
         <h1
           className={`text-white ${
             isMobile ? "text-sm" : "text-xl"

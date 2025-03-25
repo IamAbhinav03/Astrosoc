@@ -4,16 +4,20 @@ function Hero() {
       className="h-screen bg-cover flex items-center justify-start px-10"
       style={{
         backgroundImage:
-          "url('src/assets/white-rainforest-XL1QmKv4mx8-unsplash.jpg')",
+          "url('/assets/white-rainforest-XL1QmKv4mx8-unsplash.jpg')",
       }}
     >
       <div className="max-w-xl">
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-sans mb-4">
-          Ashoka Astronomy Society
+          Astronomy Society{" "}
+          {/* <span className="text-4xl">
+            <br></br>of Ashoka University
+          </span> */}
         </h1>
-        <p className="text-lg md:text-xl">
+        <p className="text-lg md:text-xl">of Ashoka University</p>
+        {/* <p className="text-lg md:text-xl">
           Exploring the Universe, One Star at a Time.
-        </p>
+        </p> */}
       </div>
     </section>
   );
